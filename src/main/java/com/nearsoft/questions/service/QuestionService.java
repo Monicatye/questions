@@ -2,6 +2,7 @@ package com.nearsoft.questions.service;
 
 import java.util.List;
 import com.nearsoft.questions.domain.Question;
+import org.springframework.data.domain.Pageable;
 
 public interface QuestionService {
 
@@ -13,4 +14,5 @@ public interface QuestionService {
 
     List<Question> search(String query);
 
+    List<Question> getUnanswered();
 }

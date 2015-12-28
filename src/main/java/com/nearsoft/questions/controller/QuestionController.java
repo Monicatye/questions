@@ -41,6 +41,12 @@ public class QuestionController extends BaseController {
         return "redirect:/ask";
     }
 
+    @RequestMapping(value = "/order/unanswered", method = RequestMethod.GET)
+    public String getUnanswered(Model model) {
+        model.addAttribute(_questionService.getUnanswered());
+        return "showQuestions";
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String get(@PathVariable long id, Model model) {
         _log.info("question with id " + id);

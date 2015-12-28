@@ -9,6 +9,7 @@ import com.nearsoft.questions.service.QuestionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,6 +48,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public Question get(long id) {
         return _questionRepository.findOne(id);
+    }
+
+    @Override
+    public List<Question> getUnanswered() {
+        return _questionRepository.findUnanswered();
     }
 
     @Override
