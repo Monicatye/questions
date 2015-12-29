@@ -42,8 +42,18 @@ public class QuestionController extends BaseController {
     }
 
     @RequestMapping(value = "/order/unanswered", method = RequestMethod.GET)
-    public String getUnanswered(Model model) {
-        model.addAttribute(_questionService.getUnanswered());
+    public String getUnanswered(Model model,
+        @RequestParam(required = false, defaultValue = "1") Integer page,
+        @RequestParam(required = false, defaultValue = "0") Integer pageSize) {
+        model.addAttribute(_questionService.getUnanswered(page, pageSize).getContent());
+        return "showQuestions";
+    }
+
+    @RequestMapping(value = "/order/newest", method = RequestMethod.GET)
+    public String getNewest(Model model,
+        @RequestParam(required = false, defaultValue = "1") Integer page,
+        @RequestParam(required = false, defaultValue = "0") Integer pageSize) {
+        model.addAttribute(_questionService.getNewest(page, pageSize).getContent());
         return "showQuestions";
     }
 
