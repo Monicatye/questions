@@ -9,7 +9,7 @@
     <#include "header.ftl">
     <#list questionList as question>
         <div>
-            <span>${question.title}</span>
+            <span><a href="/question/${question.id}">${question.title}</a></span>
             <span> - </span>
             <span>${question.totalAnswers} answers .</span>
         </div>
