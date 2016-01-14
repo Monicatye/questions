@@ -30,7 +30,7 @@ public class SearchIndexBuilder implements ApplicationListener<ContextRefreshedE
             fullTextEntityManager.createIndexer().startAndWait();
             _logger.debug("Lucene indexes already created.");
         } catch (InterruptedException e) {
-            _logger.error("There was an exception during the creation of Lucene indexe for existing data." +
+            _logger.error("There was an exception during the creation of Lucene indexes for existing data." +
                     " They were not created.");
         }
     }
