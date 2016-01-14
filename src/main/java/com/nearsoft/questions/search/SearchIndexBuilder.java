@@ -13,7 +13,8 @@ import javax.persistence.PersistenceContext;
 
 /**
  * The responsibility of this class is to create an initial Lucene index for the data already present in the database.
- * Its method onApplicationEvent(ContextRefreshedEvent event) is call during Spring's startup.
+ * Because it implements ApplicationListener, its method onApplicationEvent(ContextRefreshedEvent event) is call during
+ * Spring's startup.
  */
 @Component
 public class SearchIndexBuilder implements ApplicationListener<ContextRefreshedEvent> {
